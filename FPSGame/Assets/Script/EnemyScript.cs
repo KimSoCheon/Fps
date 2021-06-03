@@ -25,15 +25,26 @@ public class EnemyScript : MonoBehaviour
     public CharacterController enemyCharacterController;
     //애너미 스테이트를 IDLE로 고정 (enemyState 변수)
     public int hp = 5;
+    public bool isAttack = false;
+    public PlayerState playerState;
+    public AudioClip zombieDeadSound;
     void Start()
     {
         enemyState = ENEMYSTATE.IDLE;
         target = GameObject.Find("Player").transform;
         enemyCharacterController = GetComponent<CharacterController>();
+        playerState = target.GetComponent<PlayerState>();
     }
 
     void Update()
     {
+        if (playerState.isDead)
+        {
+            enemyAnim.enabled = false;
+            return;
+        }
+
+
         switch (enemyState)
         //탭키 한번 스위치문 자동설정
         //()안에 enemyState 변수 넣고 엔터 시 enum에서 선언한 상태 자동 케이스화 
@@ -44,8 +55,8 @@ public class EnemyScript : MonoBehaviour
                 {
                     stateTime = 0;
                     enemyState = ENEMYSTATE.MOVE;
-                    enemyAnim.SetTrigger("WALK");
-                    enemyAnim.ResetTrigger("IDLE");
+                    enemyAnim.SetBool("WALK", true);
+                    enemyAnim.SetBool("IDLE", false);
                 }
                 break;
             case ENEMYSTATE.MOVE:
@@ -54,12 +65,14 @@ public class EnemyScript : MonoBehaviour
                 // 계산식으로 선언한것 거리 갱신
                 float distance = Vector3.Distance(target.position, transform.position);
                 //함수로 선언한것
-                
+                //Debug.Log("현재 플레이어와 나와의 거리는 ::::" + distance);
                 if(distance < attackRange)
                     // 사거리 안에 들어왔다면
                 {
                     enemyState = ENEMYSTATE.ATTACK;
                     stateTime = attackStateMaxTime;
+                    enemyAnim.SetBool("WALK", false);
+                    enemyAnim.SetBool("ATTACK", true);
                 }
                 else
                 {
@@ -84,7 +97,7 @@ public class EnemyScript : MonoBehaviour
                     
                     transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), rotationSpeed * Time.deltaTime);
                     //에너미가 플레이어에 다가올때 (러프 란(Lerp)선형보간은 지정한 물체가 물체한태 곡선으로 이동할때 곡선으로 바뀔수있게 쿼터니언(Quaternion).러프 를 씀 )
-
+                    enemyAnim.SetBool("WALK", true);
                 }
                 break;
             case ENEMYSTATE.ATTACK:
@@ -93,58 +106,83 @@ public class EnemyScript : MonoBehaviour
                     //공격과 공격 타임
                 {
                     stateTime = 0;
-                    enemyAnim.SetTrigger("ATTACK");
-                    enemyAnim.ResetTrigger("WALK");
+                    target.GetComponent<PlayerState>().DamageByEnemy();
                 }
                 float dist = Vector3.Distance(target.position , transform.position);
                 if(dist > attackRange)
                 {
                     enemyState = ENEMYSTATE.MOVE;
-                    enemyAnim.SetTrigger("WALK");
-                    enemyAnim.ResetTrigger("ATTACK");
+                    enemyAnim.SetBool("ATTACK", false);
 
                 }
                 break;
             case ENEMYSTATE.DAMAGE:
-                enemyAnim.SetTrigger("DAMAGED");
                 stateTime += Time.deltaTime;
-                if(stateTime > idleStateTime)
+                enemyAnim.SetBool("WALK", false);
+                enemyAnim.SetBool("ATTACK", false);
+                if (stateTime > 1f)
                 {
                     stateTime = 0;
-                    --hp;
-                    enemyState = ENEMYSTATE.IDLE;
-                    enemyAnim.SetTrigger("IDLE");
-                    enemyAnim.ResetTrigger("DAMAGED");
+                    enemyState = ENEMYSTATE.MOVE;
+                    stateTime = 0;
+                    enemyAnim.SetBool("WALK", true);
+                    enemyAnim.SetBool("DAMAGED", false);
                 }
+
                 if (hp <= 0)
                 {
+                    AudioManager.Instance().PlaySfx(zombieDeadSound);
                     enemyState = ENEMYSTATE.DEAD;
-                    enemyAnim.SetTrigger("DEAD");
-                    enemyAnim.ResetTrigger("IDLE");
-                    enemyAnim.ResetTrigger("WALK");
-                    enemyAnim.ResetTrigger("DAMAGED");
-                    stateTime = 0;
                 }
                     break;
                 case ENEMYSTATE.DEAD:
-                stateTime += Time.deltaTime;
-                AnimatorClipInfo [] animationInfo;
-                animationInfo = enemyAnim.GetCurrentAnimatorClipInfo(0);
+                enemyAnim.SetBool("WALK", false);
+                enemyAnim.SetBool("DAMAGED", false);
+                enemyAnim.SetBool("DEAD", true);
+                enemyCharacterController.enabled = false;
+                AnimatorClipInfo [] animatorClipInfo;
+                animatorClipInfo = enemyAnim.GetCurrentAnimatorClipInfo(0);
+                StartCoroutine(DeadProcess(3f));
                 //if (stateTime > animationInfo[0].clip.length)
-                if (stateTime > 1.024f)
-                    Destroy(gameObject);
-
+                
+                //Destroy(gameObject, 3f);
                     break;
                 default:
                     break;
         }
     }
 
+    IEnumerator DeadProcess(float t)
+    {
+        yield return new WaitForSeconds(t);
+        while (transform.position.y > -t)
+        {
+            Vector3 temp = transform.position;
+            temp.y -= 0.01f * Time.deltaTime;
+            transform.position = temp;
+            yield return new WaitForEndOfFrame();
+        }
+
+        //Destroy(gameObject);
+        InitEnemy();
+        gameObject.SetActive(false);
+    }
+    //약자 Init 은 이니셜라이즈 초기화하다
+    void InitEnemy()
+    {
+        hp = 5;
+        enemyState = ENEMYSTATE.IDLE;
+        enemyCharacterController.enabled = true;
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Bullet")
         {
+            --hp;
             enemyState = ENEMYSTATE.DAMAGE;
+            enemyAnim.SetBool("DAMAGED", true);
         }
     }
 }

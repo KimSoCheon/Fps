@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public GameObject bulletEffect;
     public GameObject groundEffect;
+    public AudioClip exposionGroundSound;
+    public AudioClip exposionSound;
     void Start()
     {
         
@@ -21,16 +23,18 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("何婬腮 局绰 ::::" + collision.gameObject.name);
+        //Debug.Log("何婬腮 局绰 ::::" + collision.gameObject.name);
         if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             GameObject effct = Instantiate(groundEffect) as GameObject;
             effct.transform.position = transform.position;
+            AudioManager.Instance().PlaySfx(exposionGroundSound);
         }
         else
         {
             GameObject effct = Instantiate(bulletEffect) as GameObject;
             effct.transform.position = transform.position;
+            AudioManager.Instance().PlaySfx(exposionSound);
         }
         Destroy(gameObject);
     }

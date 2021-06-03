@@ -8,13 +8,17 @@ public class Mouse_Rok : MonoBehaviour
     public float rotationX;
     public float rotationY;
     public float limitY = 120f;
+    public PlayerState playerState;
     void Start()
     {
-        
+        playerState = transform.parent.GetComponent<PlayerState>();
     }
 
     void Update()
     {
+        if (playerState.isDead)
+            return;
+
         float mouseMoveValueX = Input.GetAxis("Mouse X");
         float mouseMoveValueY = Input.GetAxis("Mouse Y");
         //Debug.Log("mouseMoveValueX:::" + mouseMoveValueX);

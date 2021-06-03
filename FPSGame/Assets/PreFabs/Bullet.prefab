@@ -127,3 +127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
   groundEffect: {fileID: 100002, guid: 0b24f31f464fa614a84acdeac974ed6b, type: 3}
+  exposionGroundSound: {fileID: 8300000, guid: 8b76cff51a7d7e844b0adf5da4371ec6, type: 3}
+  exposionSound: {fileID: 8300000, guid: 1b145bcffd767854fb0c71c37678ebaa, type: 3}

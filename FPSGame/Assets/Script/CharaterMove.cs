@@ -10,19 +10,32 @@ public class CharaterMove : MonoBehaviour
     public float jumpSpeed = 10f;// 점프 스피드 10f
     public float gravity = -20f;// 중량 -20f
     public float yVelocity = 0; // y축의 속도 0
+    public PlayerState playerState;
 
     public CharacterController characterController;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         // 캐릭터 컨트롤러 에 CharacterController 컴퍼넌트를 지정
+        playerState = transform.GetComponent<PlayerState>();
     }
 
     void Update()
     {
+        if (playerState.isDead)
+            return;
+
         // 마우스 위치 정보값을( h , v )로 지정
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+        if(h > 0 || v > 0 || h < 0 || v < 0)
+        {
+            GetComponent<AudioSource>().mute = false;
+        }
+        else
+        {
+            GetComponent<AudioSource>().mute = true;
+        }
 
         // moveDirection 을 new Vector3로 위치정보 값 지정
         Vector3 moveDirection = new Vector3(h, 0, v);

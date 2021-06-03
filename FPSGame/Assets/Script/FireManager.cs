@@ -7,17 +7,21 @@ public class FireManager : MonoBehaviour
     public Transform cameraTransform;
     public GameObject bulletPreFabs;
     public Transform firePosition;
+    public PlayerState playerState;
 
     public float power = 25f;
     void Start()
     {
-        
+        playerState = transform.GetComponent<PlayerState>();
     }
 
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if (GetComponent<PlayerState>().isDead)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             GameObject bullet = Instantiate(bulletPreFabs) as GameObject;
 
