@@ -26,6 +26,11 @@ public class AudioManager : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(sfx);
     }
+
+    public void PlaySfxGun(AudioClip sfxg)
+    {
+        GetComponent<AudioSource>().PlayOneShot(sfxg);
+    }
     
     void Update()
     {

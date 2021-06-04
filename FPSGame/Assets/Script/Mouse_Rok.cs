@@ -7,7 +7,7 @@ public class Mouse_Rok : MonoBehaviour
     public float secsitvty = 500f;
     public float rotationX;
     public float rotationY;
-    public float limitY = 120f;
+    //public float limitY = 360f;
     public PlayerState playerState;
     void Start()
     {
@@ -36,7 +36,7 @@ public class Mouse_Rok : MonoBehaviour
             rotationX = -55f;
         }
 
-        if (rotationY > limitY)
+        /*if (rotationY > limitY)
         {
             rotationY = limitY;
         }
@@ -44,6 +44,7 @@ public class Mouse_Rok : MonoBehaviour
         {
             rotationY = -limitY;
         }
+        */
 
         transform.eulerAngles = new Vector3(-rotationX, rotationY, 0f);
         //Debug.Log("transform.rotation" + transform.rotation);

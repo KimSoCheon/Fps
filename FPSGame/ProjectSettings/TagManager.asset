@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FxTemporaire
   - Bullet
+  - Gun
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Player
   - Bullet
   - Ground
-  - 
-  - 
+  - post
+  - Gun
   - 
   - 
   - 

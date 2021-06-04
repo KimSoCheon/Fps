@@ -6,6 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
     public enum ENEMYSTATE
     {
+        NONE = -1,
         IDLE = 0,
         MOVE,
         ATTACK,
@@ -73,13 +74,14 @@ public class EnemyScript : MonoBehaviour
                     stateTime = attackStateMaxTime;
                     enemyAnim.SetBool("WALK", false);
                     enemyAnim.SetBool("ATTACK", true);
+                    stateTime = 0;
                 }
                 else
                 {
                     Vector3 dir = target.position - transform.position;
                     //백터3 dir 값을 백터쓰리 포지션 값끼리 뺌
                     
-                    Debug.DrawLine(target.position, transform.position, Color.red);
+                    //Debug.DrawLine(target.position, transform.position, Color.red);
                     //DrawLine 타겟의 포지션에서 지정한 포지션과 컬러값을 그림
                     //빨간선 이 플레이어와 에너미와 의 거리Debug.Log
                     
@@ -90,7 +92,7 @@ public class EnemyScript : MonoBehaviour
                     //노멀라이즈 = 정규화
                     //단순화 시켜서 방향만 구하려고 씀
                     
-                    Debug.Log(dir);
+                    //Debug.Log(dir);
                     
                     enemyCharacterController.SimpleMove(dir * speed);
                     //simpleMove 는 적들한태 많이씀 단순 이동
@@ -132,6 +134,7 @@ public class EnemyScript : MonoBehaviour
                 if (hp <= 0)
                 {
                     AudioManager.Instance().PlaySfx(zombieDeadSound);
+                    ScoreManager.InsTance().myScore += 10;
                     enemyState = ENEMYSTATE.DEAD;
                 }
                     break;
@@ -144,7 +147,6 @@ public class EnemyScript : MonoBehaviour
                 animatorClipInfo = enemyAnim.GetCurrentAnimatorClipInfo(0);
                 StartCoroutine(DeadProcess(3f));
                 //if (stateTime > animationInfo[0].clip.length)
-                
                 //Destroy(gameObject, 3f);
                     break;
                 default:
@@ -154,6 +156,7 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator DeadProcess(float t)
     {
+        //enemyState = ENEMYSTATE.NONE;
         yield return new WaitForSeconds(t);
         while (transform.position.y > -t)
         {

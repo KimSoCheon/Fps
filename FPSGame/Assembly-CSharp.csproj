@@ -56,52 +56,62 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
     <Compile Include="Assets\Script\PlayerState.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Script\Mouse_Rok.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\FireManager.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Script\CharaterMove.cs" />
     <Compile Include="Assets\Script\EnemyManager.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Scripts\AutoDestroy.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Scripts\AutoDestroy.cs" />
     <Compile Include="Assets\Script\Bullet.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Script\EnemyScript.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
-    <Compile Include="Assets\DownLode\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Script\CameraShake.cs" />
-    <Compile Include="Assets\Script\AudioManager.cs" />
+    <Compile Include="Assets\Script\ScoreManager.cs" />
+    <Compile Include="Assets\DownLode\06_Fonts\Fonts\Script\scriptTexttest.cs" />
+    <Compile Include="Assets\Script\UIManager.cs" />
+    <Compile Include="Assets\DownLode\04_Gun\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Scripts\GunfireController.cs" />
+    <Compile Include="Assets\Script\Gun.cs" />
+    <Compile Include="Assets\Script\TestAgent.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\_Effects\MuzzleFlashes\!MuzzleFlash Differences.txt" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Alpha-Specular TintColor.shader" />
-     <None Include="Assets\DownLode\Toon Zombie S\TSF\Shaders\TSF.shader" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Add Scroll.shader" />
-     <None Include="Assets\DownLode\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\_Effects (Mobile)\MuzzleFlashes\!MuzzleFlash Differences.txt" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Particle Add A8.shader" />
-     <None Include="Assets\DownLode\Toon Zombie S\TSF\Shaders\TSFOutline.shader" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Smoke Scroll.shader" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Particle Multiply A8.shader" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
+     <None Include="Assets\DownLode\01_Sound\FootstepsSoundsCarpetPack\FootstepsSoundsCarpetPackInfo.txt" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\_Effects\MuzzleFlashes\!MuzzleFlash Differences.txt" />
+     <None Include="Assets\DownLode\06_Fonts\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Alpha-Specular TintColor.shader" />
+     <None Include="Assets\DownLode\03_Enemy\Toon Zombie S\TSF\Shaders\TSF.shader" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Add Scroll.shader" />
+     <None Include="Assets\DownLode\04_Gun\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Readme.txt" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\_Effects (Mobile)\MuzzleFlashes\!MuzzleFlash Differences.txt" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Particle Add A8.shader" />
+     <None Include="Assets\DownLode\03_Enemy\Toon Zombie S\TSF\Shaders\TSFOutline.shader" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Smoke Scroll.shader" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Particle Multiply A8.shader" />
      <None Include="Assets\DownLode\01_Sound\Darkness and Horror Soundtrack\Read Me!.txt" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend Scroll.shader" />
-     <None Include="Assets\DownLode\Low Poly Graveyard\Materials\vertexcolorsstandard.shader" />
-     <None Include="Assets\DownLode\Five Seamless Tileable Ground Textures\read me.txt" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Particle AddSoft A8.shader" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\!WarFX Readme.txt" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S Alpha-Diffuse TintColor.shader" />
-     <None Include="Assets\DownLode\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend NoSoftParticles.shader" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend Scroll.shader" />
+     <None Include="Assets\DownLode\06_Fonts\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
+     <None Include="Assets\DownLode\05_Ground\Low Poly Graveyard\Materials\vertexcolorsstandard.shader" />
+     <None Include="Assets\DownLode\05_Ground\Five Seamless Tileable Ground Textures\read me.txt" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Particle AddSoft A8.shader" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\!WarFX Readme.txt" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S Alpha-Diffuse TintColor.shader" />
+     <None Include="Assets\DownLode\07_Effect\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend NoSoftParticles.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -672,6 +682,9 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -687,6 +700,9 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -695,12 +711,6 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

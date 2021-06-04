@@ -6,11 +6,13 @@ public class Bullet : MonoBehaviour
 {
     public GameObject bulletEffect;
     public GameObject groundEffect;
+    public GameObject gunEffect;
     public AudioClip exposionGroundSound;
     public AudioClip exposionSound;
+    public AudioClip exposionGun;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
